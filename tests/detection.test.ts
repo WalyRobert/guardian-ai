@@ -1,0 +1,2 @@
+import {it,expect} from 'vitest';import {filterDetections} from '../services/detectionService';
+it('filtra confiança e caixas inválidas sem atribuir ameaça',()=>{const detections=filterDetections([{class:'person',score:.9,bbox:[1,2,30,40]},{class:'cat',score:.3,bbox:[1,2,3,4]},{class:'car',score:.95,bbox:[0,0,-1,2]},{class:'bad',score:NaN,bbox:[0,0,1,1]}],.6);expect(detections).toEqual([{class:'person',score:.9,bbox:[1,2,30,40]}]);expect(()=>filterDetections([],2)).toThrow();});
