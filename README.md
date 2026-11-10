@@ -23,3 +23,11 @@ COCO-SSD tem classes e limitações próprias; ausência de detecção não prov
 `npm test`, `npm run test:server`, `npm run build`. Testes usam modelo/câmera simulados para validar filtragem, início explícito e descarte tardio de modelo/stream; API testada com respostas simuladas. Não substituem avaliação do modelo com imagens reais nem testes de câmera/GPU em hardware representativo.
 
 [Implementação oficial COCO-SSD](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd). Dependências/modelos mantêm suas licenças. Licença de redistribuição do código desta edição ainda não definida pelo autor.
+
+
+## Início e diagnóstico simplificados
+
+Após `npm ci`, execute `npm run diagnostico` para verificar Node, dependências, build e presença de configuração sem revelar chaves ou consumir cota. Execute `npm run iniciar` para compilar a versão atual e abrir o servidor local em um único terminal. A faixa de estado da interface distingue configuração ausente e integração ainda não comprovada. Encontrar uma chave não confirma que ela é válida nem que existe cota gratuita. Nenhum teste de geração é iniciado automaticamente.
+
+O botão Testar detector local carrega o COCO-SSD real e executa inferência em uma imagem sintética, sem câmera ou Gemini. O limiar selecionado é passado à inferência; o teste não mede precisão ou falsos positivos em imagens reais.
+
